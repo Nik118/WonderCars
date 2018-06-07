@@ -1,0 +1,9 @@
+body { background: #000; margin: 0; }
+div#cars { font-size: 0; background: #000; }
+div#cars img { width: 50%; height: auto;
+opacity: 0; transition: .8s opacity; }
+div#cars img.visible { opacity: 1; }
+
+.white{
+  color: white;
+}
