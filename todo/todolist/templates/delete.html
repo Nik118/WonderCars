@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+<div django-app="TaskManager">
+    <div class="container">
+      <div class="centerstage">
+<form method="POST">
+{% csrf_token %}
+<h2> Are you sure want to delete {{ object }} ?</h2>
+<div class="row">
+<button class="btn btn-danger" type="submit">Delete</button>
+<a href=" {% url "Todolist" %}" class="btn btn-lg btn-dark">CANCEL</a>
+</form>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

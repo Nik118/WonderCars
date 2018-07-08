@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+{% block content %}
+    <div django-app="TaskManager">
+    <div class="container">
+    <div class="content">
+    <br>
+    <h1>ADD TASK</h1>
+    <br>
+    <form action="" method="post">
+    {% csrf_token %}
+        <div class="inputContainer">
+            <input type="text" id="description" class="taskName" placeholder="What do you need to do?" name="description" required>
+            <label for="description">Description</label>
+        </div>
+        <div class="inputContainer half last">
+            <i class="fa fa-caret-down selectArrow"></i>
+            <select id="category" class="taskCategory" name="category_select">
+            <option class="disabled" value="">Choose a category</option>
+            {% for category in categories %}
+                <option class="" value="{{ category.name }}" name="{{ category.name }}">{{ category.name }}</option>
+            {% endfor %}
+            </select>
+            <label for="category">Category</label>
+        </div>
+        <div class="inputContainer half last right">
+            <input type="date" id="dueDate" class="taskDate" name="date">
+            <label for="dueDate">Due Date</label>
+        </div>
+        <div class="row">
+            <input class="btn btn-lg btn-success" name="taskAdd" type="submit" value="ADD"></input>
+        </div>
+        {% for message in messages %}
+      <div class="alert alert-danger">{{ message }}</div>
+  {% endfor %}
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock  %}
